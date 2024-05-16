@@ -25,5 +25,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./themes/kadima
           publish_branch: gh-pages  # O branch que você está usando para GitHub Pages
