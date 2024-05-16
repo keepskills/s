@@ -1,0 +1,4 @@
+{{ define "main" }}
+  {{ $index := resources.Get "redlight/redlight.html" }}
+  {{ $index.Content | safeHTML }}
+{{ end }}
