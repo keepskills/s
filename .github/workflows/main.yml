@@ -1,28 +1,29 @@
-name: Build Kadima Cloud Site
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # Ou o branch que você usa para deploy
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-      name: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
 
-    - name: Build Hugo Site
-      run: hugo --minify
+      - name: Build the site
+        run: hugo
 
-    - name: Test [revisar]
-      run: curl --fail http://localhost:1313
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages  # O branch que você está usando para GitHub Pages
