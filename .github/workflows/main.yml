@@ -1,4 +1,4 @@
-name: Deploy Hugo site to GitHub Pages NEWWWWW
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           hugo-version: 'latest'
 
       - name: Build the site
-        run: hugo --cleanDestinationDir && hugo serve -D
+        run: hugo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
