@@ -2,4 +2,18 @@ baseURL = 'https://kadima.cloud/'
 languageCode = 'en-us'
 title = 'Kadima Cloud'
 theme = "kadima"
-canonifyURLs = true
+
+[permalinks]
+  post = "/:title/"
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+  taxonomy = ["HTML"]
+  taxonomyTerm = ["HTML"]
+
+[outputFormats]
+  [outputFormats.HTML]
+    mediaType = "text/html"
+    baseName = "index"
